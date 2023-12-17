@@ -15,6 +15,7 @@ function HomePage() {
         e.preventDefault()
         let user = await dispatch(riotactions.getUserData(formData.username, formData.region))
         if (user) {
+            let matches = await dispatch(riotactions.getMatches(user.puuid))
             history.push("/user")
         }
     }

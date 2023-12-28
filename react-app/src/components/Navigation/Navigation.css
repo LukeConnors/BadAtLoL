@@ -5,3 +5,38 @@
 .hidden {
   display: none;
 }
+
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #757575ff;
+    height: 50px;
+    padding: 0px 20px 0px 20px;
+}
+
+.home-link{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-tab{
+  height: 75%;
+  width: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-tab:hover{
+  background-color: rgb(87, 87, 87);
+  height: 75%;
+  width: 7%;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

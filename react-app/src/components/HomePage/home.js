@@ -23,7 +23,7 @@ function HomePage() {
 
     return (
         <div className="home-page">
-            <h1>Home Page</h1>
+            <h1 className="home-page-title">Am I Bad at LoL?</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-inputs">
                     <div className="summ-name-div">
@@ -41,10 +41,11 @@ function HomePage() {
 
                         <h2 className="region">Region</h2>
                         <select
+                            className="region-select"
                             value={formData.region}
                             onChange={(e) => setFormData({ ...formData, region: e.target.value })}
                         >
-                            <option value="">--Please choose an option--</option>
+                            <option value="">--Select Region--</option>
                             <option value="na1">NA</option>
                             <option value="euw1">EUW</option>
                             <option value="eun1">EUNE</option>

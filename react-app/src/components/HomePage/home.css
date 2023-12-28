@@ -1,3 +1,10 @@
+
+.home-page-title{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 30px;
+}
 .form-inputs{
     display: flex;
     flex-direction: row;
@@ -17,6 +24,19 @@
     font-weight: bold;
     color: white;
 }
+
+.summ-name-input{
+    width: 200px;
+    height: 30px;
+    border-radius:5px 0px 0px 5px;
+    background-color: rgb(210, 211, 212);
+    color: #757575ff;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    margin-left: 10px;
+    border-right: 1px solid black;
+}
 .summ-name-div{
     display: flex;
     flex-direction: column;
@@ -32,6 +52,18 @@
     color: white; 
 }
 
+.region-select{
+    width: 200px;
+    height: 32px;
+    background-color: rgb(210, 211, 212);
+    color: #757575ff;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-right: 1px solid black;
+
+}
+
 .region-div{
     display: flex;
     flex-direction: column;
@@ -44,10 +76,10 @@
 
 .submit-button{
     width: 100px;
-    height: 30px;
-    border-radius: 5px;
-    background-color: rgb(135, 138, 140);
-    color: white;
+    height: 32px;
+    border-radius: 0px 5px 5px 0px;
+    background-color: rgb(210, 211, 212);
+    color: #757575ff;
     font-weight: bold;
     font-size: 16px;
     border: none;
@@ -59,11 +91,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 15px;
 
 }
 
 .submit-button:hover{
-    color: rgba(202, 202, 204, 0.8);
+    color: black;
     font-size: 15px;
 }

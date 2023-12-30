@@ -16,19 +16,16 @@
     padding: 0px 20px 0px 20px;
 }
 
-.home-link{
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-}
-
 .nav-tab{
   height: 75%;
   width: 7%;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .nav-tab:hover{
@@ -39,4 +36,67 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.log-in-modal{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.profile-button{
+  height: 75%;
+  width: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: rgb(73, 150, 237);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.profile-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  top: calc(4.5%);
+  right: 1.2%;
+  padding: 20px;
+  background-color: #757575ff;
+  height: 50px;
+  width: 115px;
+  border: rgb(252, 252, 252) 1px solid;
+  border-radius: 5px;
+}
+
+.log-in-creds{
+  list-style-type: none;
+  color: white;
+}
+.creds-container{
+  padding: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.log-out-button{
+  width: 100px;
+  height: 25px;
+  border-radius: 0px 5px 5px 0px;
+  background-color: rgb(210, 211, 212);
+  color: #757575ff;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.log-out-button:hover{
+  color: black;
+  font-size: 13px;
 }

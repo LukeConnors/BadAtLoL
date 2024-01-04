@@ -1,0 +1,17 @@
+.modal-button{
+    width: 100px;
+    height: 25px;
+    background-color: rgb(210, 211, 212);
+    color: #757575ff;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .modal-button:hover{
+    color: black;
+    font-size: 13px;
+  }
+  

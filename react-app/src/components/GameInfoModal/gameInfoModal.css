@@ -1,0 +1,23 @@
+.champion-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(73, 150, 237);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.game-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #757575ff;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

@@ -53,7 +53,7 @@ function ProfileButton({ user }) {
             </li>
           </div>
         ) : (
-          <div className="log-in-container">
+          <div className="creds-container">
             <OpenModalButton
               buttonText="Log In"
               onItemClick={closeMenu}

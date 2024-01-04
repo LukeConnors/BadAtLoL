@@ -1,8 +1,11 @@
-import { useSelector } from "react-redux";
+ import { useSelector } from "react-redux";
 import * as riotactions from "../../store/userNames.js"
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
+import OpenModalButton from "../OpenModalButton";
+import GameInfoModal from "../GameInfoModal/GameInfoModal.js";
+
 import "./userPage.css"
 
 function UserPage() {
@@ -36,11 +39,31 @@ function UserPage() {
         <img src={`https://ddragon-webp.lolmath.net/latest/img/profileicon/${user.profileIconId}.webp`}></img>
         <h2>Match History</h2>
         {matchDataArr.map((match) => {
-          return(
-            <div>
-              {/* <h3>Match {match.info.gameMode}</h3> */}
-            </div>
-          )
+          if(match.info.gameMode === "CLASSIC"){
+            return(
+              <div className="match-container">
+                <h3>Summoner's Rift 5v5</h3>
+                <OpenModalButton
+                  buttonText="View Match"
+                  modalComponent={<GameInfoModal match={match}/>}
+                />
+                <h4>Game Duration: {Math.floor(match.info.gameDuration / 60)} Minutes</h4>
+              </div>
+            )
+          }
+
+          if(match.info.gameMode === "CHERRY"){
+            return(
+              <div className="match-container">
+                <h3>Arena</h3>
+                <OpenModalButton
+                  buttonText="View Match"
+                  modalComponent={<GameInfoModal match={match}/>}
+                />
+                <h4>Game Duration: {Math.floor(match.info.gameDuration / 60)} Minutes</h4>
+              </div>
+            )
+          }
 
         })}
       </div>

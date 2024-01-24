@@ -2,9 +2,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     justify-content: center;
     background-color: rgb(73, 150, 237);
-    height: 100%;
+    overflow: hidden;
+    padding: 10px;
+    margin: 20px;
+    height: 200px;
     width: 100%;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -20,4 +24,20 @@
     width: 100%;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+.champ-level{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color:white;
+    opacity: 0.5;
+    padding: 5px; 
+    margin: 0; 
+    color: black;
+}
+
+.img-container{
+    position: relative;
+    display: inline-block;
 }

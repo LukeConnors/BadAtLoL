@@ -67,6 +67,9 @@ function UserPage() {
                           return (
                             <div className="champion-container">
                               <h3>{participant.summonerName}</h3>
+                              <h4 className="role">
+                                {participant.championName}
+                              </h4>
                               <div className="img-container" onClick={null}>
                                 <img
                                   src={`https://ddragon-webp.lolmath.net/latest/img/champion/${participant.championName}.webp`}

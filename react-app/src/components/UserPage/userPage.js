@@ -64,22 +64,43 @@ function UserPage() {
                       <h1>Match Data</h1>
                       <div className="game-container">
                         {match?.info?.participants?.map((participant) => {
-                          return (
-                            <div className="champion-container">
-                              <h3>{participant.summonerName}</h3>
-                              <h4 className="role">
-                                {participant.championName}
-                              </h4>
-                              <div className="img-container" onClick={null}>
-                                <img
-                                  src={`https://ddragon-webp.lolmath.net/latest/img/champion/${participant.championName}.webp`}
-                                ></img>
-                                <p className="champ-level">
-                                  {participant.champLevel}
-                                </p>
+                          if(participant.win === true){
+                            return (
+                              <div className="champion-container-win">
+                                <h3>{participant.riotIdGameName}</h3>
+                                <h4 className="role">
+                                  {participant.championName}
+                                </h4>
+                                <div className="img-container" onClick={null}>
+                                  <img
+                                    className="champ-img"
+                                    src={`https://ddragon-webp.lolmath.net/latest/img/champion/${participant.championName}.webp`}
+                                  ></img>
+                                  <p className="champ-level">
+                                    {participant.champLevel}
+                                  </p>
+                                </div>
                               </div>
-                            </div>
-                          );
+                            );
+                          } else {
+                            return (
+                              <div className="champion-container-loss">
+                                <h3>{participant.riotIdGameName}</h3>
+                                <h4 className="role">
+                                  {participant.championName}
+                                </h4>
+                                <div className="img-container" onClick={null}>
+                                  <img
+                                    className="champ-img"
+                                    src={`https://ddragon-webp.lolmath.net/latest/img/champion/${participant.championName}.webp`}
+                                  ></img>
+                                  <p className="champ-level">
+                                    {participant.champLevel}
+                                  </p>
+                                </div>
+                              </div>
+                            );
+                          }
                         })}
                       </div>
                     </div>

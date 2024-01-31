@@ -1,18 +1,3 @@
-.champion-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    justify-content: center;
-    background-color: rgb(73, 150, 237);
-    overflow: hidden;
-    padding: 10px;
-    margin: 20px;
-    height: 200px;
-    width: 100%;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
 
 .game-container{
     display: flex;
@@ -35,6 +20,7 @@
     padding: 5px; 
     margin: 0; 
     color: black;
+    border-radius: 0px 0px 0px 5px;
 }
 
 .img-container{

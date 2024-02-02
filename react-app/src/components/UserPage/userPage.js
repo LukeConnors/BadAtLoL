@@ -18,6 +18,11 @@ function UserPage() {
   const matches = useSelector((state) => state.user.matchHistory);
   const [matchDataArr, setMatchDataArr] = useState([]);
 
+  const shortenChampionName = (championName) => {
+    let shortenedName = championName.slice(0, 9);
+    return shortenedName + "...";
+  };
+
   const openMatchFunc = (matchId) => {
     // function with callback to check if the selected match is the same one, if so it will close the match
     // otherwise this function
@@ -77,10 +82,24 @@ function UserPage() {
                                 className="champion-container-win"
                                 onClick={() => openPlayerInfo(participant)}
                               >
-                                <h3>{participant.riotIdGameName}</h3>
-                                <h4 className="role">
-                                  {participant.championName}
-                                </h4>
+                                <div className="card-data">
+                                  <div className="name-container">
+                                    <h3 className="game-name">
+                                      {participant.riotIdGameName.length > 9
+                                        ? shortenChampionName(
+                                            participant.riotIdGameName
+                                          )
+                                        : participant.riotIdGameName}
+                                    </h3>
+                                  </div>
+                                  <h4 className="data-point">
+                                    {participant.kills}/{participant.deaths}/
+                                    {participant.assists}
+                                  </h4>
+                                  <h4 className="role">
+                                    {participant.championName}
+                                  </h4>
+                                </div>
                                 <div className="img-container" onClick={null}>
                                   <img
                                     className="champ-img"
@@ -98,10 +117,24 @@ function UserPage() {
                                 className="champion-container-loss"
                                 onClick={() => openPlayerInfo(participant)}
                               >
-                                <h3>{participant.riotIdGameName}</h3>
-                                <h4 className="role">
-                                  {participant.championName}
-                                </h4>
+                                <div className="card-data">
+                                  <div className="name-container">
+                                    <h3 className="game-name">
+                                      {participant.riotIdGameName.length > 9
+                                        ? shortenChampionName(
+                                            participant.riotIdGameName
+                                          )
+                                        : participant.riotIdGameName}
+                                    </h3>
+                                  </div>
+                                  <h4 className="data-point">
+                                    {participant.kills}/{participant.deaths}/
+                                    {participant.assists}
+                                  </h4>
+                                  <h4 className="role">
+                                    {participant.championName}
+                                  </h4>
+                                </div>
                                 <div className="img-container">
                                   <img
                                     className="champ-img"

@@ -3,14 +3,17 @@ import * as riotactions from "../../store/userNames.js";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useModal, openModal } from "../../context/Modal.js";
 import OpenModalButton from "../OpenModalButton";
-import GameInfoModal from "../GameInfoModal/GameInfoModal.js";
+import GameInfoModal from "../GameInfoModal/PlayerInfoModal.js";
 
 import "./userPage.css";
+import PlayerInfoModal from "../GameInfoModal/PlayerInfoModal.js";
 
 function UserPage() {
   const dispatch = useDispatch();
   const [selectedMatch, setSelectedMatch] = useState(null);
+  const { setModalContent } = useModal();
   const user = useSelector((state) => state.user.userInfo);
   const matches = useSelector((state) => state.user.matchHistory);
   const [matchDataArr, setMatchDataArr] = useState([]);
@@ -21,6 +24,10 @@ function UserPage() {
     setSelectedMatch((prevSelectedMatch) =>
       prevSelectedMatch === matchId ? null : matchId
     );
+  };
+
+  const openPlayerInfo = (participant) => {
+    setModalContent(<PlayerInfoModal participant={participant} />);
   };
 
   useEffect(() => {
@@ -64,9 +71,12 @@ function UserPage() {
                       <h1>Match Data</h1>
                       <div className="game-container">
                         {match?.info?.participants?.map((participant) => {
-                          if(participant.win === true){
+                          if (participant.win === true) {
                             return (
-                              <div className="champion-container-win">
+                              <div
+                                className="champion-container-win"
+                                onClick={() => openPlayerInfo(participant)}
+                              >
                                 <h3>{participant.riotIdGameName}</h3>
                                 <h4 className="role">
                                   {participant.championName}
@@ -84,12 +94,15 @@ function UserPage() {
                             );
                           } else {
                             return (
-                              <div className="champion-container-loss">
+                              <div
+                                className="champion-container-loss"
+                                onClick={() => openPlayerInfo(participant)}
+                              >
                                 <h3>{participant.riotIdGameName}</h3>
                                 <h4 className="role">
                                   {participant.championName}
                                 </h4>
-                                <div className="img-container" onClick={null}>
+                                <div className="img-container">
                                   <img
                                     className="champ-img"
                                     src={`https://ddragon-webp.lolmath.net/latest/img/champion/${participant.championName}.webp`}

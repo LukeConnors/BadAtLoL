@@ -44,6 +44,12 @@
     width: 100%;
     border-radius: 5px;
     margin-bottom: 10px;
+    transition: transform 0.2s ease-out;
+}
+
+.champion-container-win:hover{
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 .champion-container-loss{
@@ -61,4 +67,40 @@
     width: 100%;
     border-radius: 5px;
     margin-bottom: 10px;
+    transition: transform 0.2s ease-out;
+}
+
+.champion-container-loss:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+
+.game-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #757575ff;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.champ-level{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color:white;
+    opacity: 0.5;
+    padding: 5px; 
+    margin: 0; 
+    color: black;
+    border-radius: 0px 0px 0px 5px;
+}
+
+.img-container{
+    position: relative;
+    display: inline-block;
 }

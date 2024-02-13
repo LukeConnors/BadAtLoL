@@ -1,6 +1,7 @@
 import "./playerInfoModal.css";
 
 function PlayerInfoModal({ participant }) {
+  // This function will find the image of the item based on the item id, if the id is 0 (meaning the player has no item in that slot) it will return null
   const findImage = (item) => {
     if (item === 0) {
       return null;

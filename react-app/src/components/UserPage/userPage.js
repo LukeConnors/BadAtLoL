@@ -5,10 +5,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useModal, openModal } from "../../context/Modal.js";
 import OpenModalButton from "../OpenModalButton";
-import GameInfoModal from "../GameInfoModal/PlayerInfoModal.js";
+import GameInfoModal from "../PlayerInfoModal/PlayerInfoModal.js";
 
 import "./userPage.css";
-import PlayerInfoModal from "../GameInfoModal/PlayerInfoModal.js";
+import PlayerInfoModal from "../PlayerInfoModal/PlayerInfoModal.js";
 
 function UserPage() {
   const dispatch = useDispatch();
@@ -55,11 +55,11 @@ function UserPage() {
   if (user && matches && matchDataArr) {
     return (
       <div>
-        <h1>User Page</h1>
-        <h2>Summoner Name: {user.name}</h2>
-        <h2>Summoner Level: {user.summonerLevel}</h2>
+        <h1>{user.name}</h1>
+        <h5 className="summoner-level">{user.summonerLevel}</h5>
         <img
           src={`https://ddragon-webp.lolmath.net/latest/img/profileicon/${user.profileIconId}.webp`}
+          className="summoner-icon"
         ></img>
         <h2>Match History</h2>
         {matchDataArr?.length > 0 ? (

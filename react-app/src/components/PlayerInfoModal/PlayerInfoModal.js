@@ -4,7 +4,11 @@ function PlayerInfoModal({ participant }) {
   // This function will find the image of the item based on the item id, if the id is 0 (meaning the player has no item in that slot) it will return null
   const findImage = (item) => {
     if (item === 0) {
-      return null;
+      return (
+        <>
+          <img></img>
+        </>
+      );
     } else {
       return (
         <img
@@ -28,6 +32,10 @@ function PlayerInfoModal({ participant }) {
       {findImage(participant.item4)}
       {findImage(participant.item5)}
       {findImage(participant.item6)}
+      <h3>Minion Kills: {participant.totalMinionsKilled}</h3>
+      <h3>Gold: {participant.goldEarned}</h3>
+      <h3>Damage Dealt: {participant.totalDamageDealtToChampions}</h3>
+      <h3>Damage Taken: {participant.totalDamageTaken}</h3>
     </div>
   );
 }

@@ -51,7 +51,6 @@ function UserPage() {
     fetchData();
   }, [matches]);
 
-  console.log("!!!!!!!!!", matchDataArr);
   if (user && matches && matchDataArr) {
     return (
       <div>
@@ -64,6 +63,9 @@ function UserPage() {
         <h2>Match History</h2>
         {matchDataArr?.length > 0 ? (
           matchDataArr?.map((match) => {
+            let damageArray = match?.info?.participants.map(
+              (participant) => participant?.totalDamageDealtToChampions
+            );
             if (match?.info?.gameMode === "CLASSIC") {
               return (
                 <div className="match-container">
@@ -80,7 +82,14 @@ function UserPage() {
                             return (
                               <div
                                 className="champion-container-win"
-                                onClick={() => openPlayerInfo(participant)}
+                                onClick={() =>
+                                  setModalContent(
+                                    <PlayerInfoModal
+                                      participant={participant}
+                                      damageArray={damageArray}
+                                    />
+                                  )
+                                }
                               >
                                 <div className="card-data">
                                   <div className="name-container">

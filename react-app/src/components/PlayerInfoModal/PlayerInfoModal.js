@@ -1,6 +1,6 @@
 import "./playerInfoModal.css";
 
-function PlayerInfoModal({ participant }) {
+function PlayerInfoModal({ participant, damageArray }) {
   // This function will find the image of the item based on the item id, if the id is 0 (meaning the player has no item in that slot) it will return null
   const findImage = (item) => {
     if (item === 0) {
@@ -17,6 +17,7 @@ function PlayerInfoModal({ participant }) {
       );
     }
   };
+  console.log("DAMAGE ARRAY", damageArray);
 
   return (
     <div className="main-data-container">
@@ -36,6 +37,7 @@ function PlayerInfoModal({ participant }) {
       <h3>Gold: {participant.goldEarned}</h3>
       <h3>Damage Dealt: {participant.totalDamageDealtToChampions}</h3>
       <h3>Damage Taken: {participant.totalDamageTaken}</h3>
+      <h3>Damage array: {damageArray}</h3>
     </div>
   );
 }

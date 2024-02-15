@@ -121,10 +121,21 @@ function UserPage() {
                               </div>
                             );
                           } else {
+                            let damageArray = match?.info?.participants.map(
+                              (participant) =>
+                                participant?.totalDamageDealtToChampions
+                            );
                             return (
                               <div
                                 className="champion-container-loss"
-                                onClick={() => openPlayerInfo(participant)}
+                                onClick={() =>
+                                  setModalContent(
+                                    <PlayerInfoModal
+                                      participant={participant}
+                                      damageArray={damageArray}
+                                    />
+                                  )
+                                }
                               >
                                 <div className="card-data">
                                   <div className="name-container">

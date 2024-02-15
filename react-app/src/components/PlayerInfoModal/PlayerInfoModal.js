@@ -1,6 +1,22 @@
 import "./playerInfoModal.css";
+import { useState } from "react";
 
 function PlayerInfoModal({ participant, damageArray }) {
+  let rank = 0;
+
+  // Helper function to add the correct ending to a number for rankings
+  const addEndToNumber = (number) => {
+    if (number[number.length - 1] === "1" && number !== "11") {
+      return `${number}st`;
+    } else if (number[number.length - 1] === "2" && number !== "12") {
+      return `${number}nd`;
+    } else if (number[number.length - 1] === "3" && number !== "13") {
+      return `${number}rd`;
+    } else {
+      return `${number}th`;
+    }
+  };
+
   // This function will find the image of the item based on the item id, if the id is 0 (meaning the player has no item in that slot) it will return null
   const findImage = (item) => {
     if (item === 0) {
@@ -17,7 +33,14 @@ function PlayerInfoModal({ participant, damageArray }) {
       );
     }
   };
-  console.log("DAMAGE ARRAY", damageArray);
+  damageArray = damageArray.sort((a, b) => b - a);
+  damageArray.forEach((totalDamage) => {
+    if (participant.totalDamageDealtToChampions === totalDamage) {
+      rank = damageArray.indexOf(totalDamage) + 1;
+    }
+  });
+
+  let properRank = addEndToNumber(rank.toString());
 
   return (
     <div className="main-data-container">
@@ -35,9 +58,10 @@ function PlayerInfoModal({ participant, damageArray }) {
       {findImage(participant.item6)}
       <h3>Minion Kills: {participant.totalMinionsKilled}</h3>
       <h3>Gold: {participant.goldEarned}</h3>
-      <h3>Damage Dealt: {participant.totalDamageDealtToChampions}</h3>
+      <h3>
+        Damage Dealt: {participant.totalDamageDealtToChampions} {properRank}
+      </h3>
       <h3>Damage Taken: {participant.totalDamageTaken}</h3>
-      <h3>Damage array: {damageArray}</h3>
     </div>
   );
 }

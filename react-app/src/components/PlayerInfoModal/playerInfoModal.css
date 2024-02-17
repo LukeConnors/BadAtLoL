@@ -1,0 +1,29 @@
+.in-game-name{
+    padding: 0px;
+    margin: 0px;
+    font-size: 1.5em;
+    color: black;
+    text-shadow: 2px 2px 4px #ffffff;
+}
+
+.main-data-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(0, 0%, 55%);
+    margin: 0px;
+    padding: 35px;
+}
+
+.bad-kda{
+    color: red;
+}
+
+.good-kda{
+    color: rgb(38, 196, 49);
+}
+
+.mid-kda{
+    color: rgb(202, 133, 13);
+}

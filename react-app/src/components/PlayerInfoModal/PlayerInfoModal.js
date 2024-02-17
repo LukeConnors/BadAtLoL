@@ -40,28 +40,57 @@ function PlayerInfoModal({ participant, damageArray }) {
     }
   });
 
+  const kdaCalculator = (kills, deaths, assists) => {
+    const kda = (kills + assists) / deaths;
+    return kda.toFixed(2);
+  };
+
+  const statsColoring = (kills, deaths, assists) => {
+    const kda = kdaCalculator(kills, deaths, assists);
+    if (kda < 1) {
+      return "bad-kda";
+    } else if (kda < 2) {
+      return "mid-kda";
+    } else {
+      return "good-kda";
+    }
+  };
+
+  const addCommas = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   let properRank = addEndToNumber(rank.toString());
 
   return (
     <div className="main-data-container">
-      <h1>{participant.riotIdGameName}</h1>
+      <h1 className="in-game-name">{participant.riotIdGameName}</h1>
       <h2>{participant.championName}</h2>
-      <h4>
+      <h4
+        className={statsColoring(
+          participant.kills,
+          participant.deaths,
+          participant.assists
+        )}
+      >
         {participant.kills}/{participant.deaths}/{participant.assists}
       </h4>
-      {findImage(participant.item0)}
-      {findImage(participant.item1)}
-      {findImage(participant.item2)}
-      {findImage(participant.item3)}
-      {findImage(participant.item4)}
-      {findImage(participant.item5)}
-      {findImage(participant.item6)}
-      <h3>Minion Kills: {participant.totalMinionsKilled}</h3>
-      <h3>Gold: {participant.goldEarned}</h3>
+      <div>
+        {findImage(participant.item0)}
+        {findImage(participant.item1)}
+        {findImage(participant.item2)}
+        {findImage(participant.item3)}
+        {findImage(participant.item4)}
+        {findImage(participant.item5)}
+        {findImage(participant.item6)}
+      </div>
+      <h3>Creep Score: {addCommas(participant.totalMinionsKilled)}</h3>
+      <h3>Gold: {addCommas(participant.goldEarned)}</h3>
       <h3>
-        Damage Dealt: {participant.totalDamageDealtToChampions} {properRank}
+        Damage Dealt: {addCommas(participant.totalDamageDealtToChampions)}{" "}
+        {properRank}
       </h3>
-      <h3>Damage Taken: {participant.totalDamageTaken}</h3>
+      <h3>Damage Taken: {addCommas(participant.totalDamageTaken)}</h3>
     </div>
   );
 }

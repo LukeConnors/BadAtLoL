@@ -54,13 +54,15 @@ function UserPage() {
   if (user && matches && matchDataArr) {
     return (
       <div>
-        <h1>{user.name}</h1>
-        <h5 className="summoner-level">{user.summonerLevel}</h5>
-        <img
-          src={`https://ddragon-webp.lolmath.net/latest/img/profileicon/${user.profileIconId}.webp`}
-          className="summoner-icon"
-        ></img>
-        <h2>Match History</h2>
+        <div className="emblem-container">
+          <h1>{user.name}</h1>
+          <h5 className="summoner-level">{user.summonerLevel}</h5>
+          <img
+            src={`https://ddragon-webp.lolmath.net/latest/img/profileicon/${user.profileIconId}.webp`}
+            className="summoner-icon"
+          ></img>
+        </div>
+        <h2>Match History:</h2>
         {matchDataArr?.length > 0 ? (
           matchDataArr?.map((match) => {
             let damageArray = match?.info?.participants.map(

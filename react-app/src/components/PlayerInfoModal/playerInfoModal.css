@@ -27,3 +27,40 @@
 .mid-kda{
     color: rgb(202, 133, 13);
 }
+
+.damage-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.damage-rank{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    padding-left: 10px;
+    border-radius: 20px;
+    padding-right: 10px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.kda-div{
+    background-color: white;
+    border-radius: 20px;
+    width: 50px;
+    height: 30px;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+
+}

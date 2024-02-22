@@ -72,7 +72,10 @@ function UserPage() {
               return (
                 <div className="match-container">
                   <h3>Summoner's Rift 5v5</h3>
-                  <button onClick={() => openMatchFunc(match?.info?.gameId)}>
+                  <button
+                    className="view-match-button"
+                    onClick={() => openMatchFunc(match?.info?.gameId)}
+                  >
                     View Match
                   </button>
                   {selectedMatch === match.info.gameId && (

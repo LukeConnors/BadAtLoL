@@ -65,9 +65,13 @@ function UserPage() {
         <h2>Match History:</h2>
         {matchDataArr?.length > 0 ? (
           matchDataArr?.map((match) => {
-            let damageArray = match?.info?.participants.map(
+            let damageDealtArray = match?.info?.participants.map(
               (participant) => participant?.totalDamageDealtToChampions
             );
+            let damageTakenArray = match?.info?.participants.map(
+              (participant) => participant?.totalDamageTaken
+            );
+
             if (match?.info?.gameMode === "CLASSIC") {
               return (
                 <div className="match-container">
@@ -91,7 +95,8 @@ function UserPage() {
                                   setModalContent(
                                     <PlayerInfoModal
                                       participant={participant}
-                                      damageArray={damageArray}
+                                      damageDealt={damageDealtArray}
+                                      damageTaken={damageTakenArray}
                                     />
                                   )
                                 }

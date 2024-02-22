@@ -1,8 +1,9 @@
 import "./playerInfoModal.css";
 import { useState } from "react";
 
-function PlayerInfoModal({ participant, damageArray }) {
+function PlayerInfoModal({ participant, damageDealt, damageTaken }) {
   let damageDealtRank = 0;
+  let damageTakenRank = 0;
 
   // Helper function to add the correct ending to a number for rankings
   const addEndToNumber = (number) => {
@@ -33,10 +34,17 @@ function PlayerInfoModal({ participant, damageArray }) {
       );
     }
   };
-  damageArray = damageArray.sort((a, b) => b - a);
-  damageArray.forEach((totalDamage) => {
+  damageDealt = damageDealt.sort((a, b) => b - a);
+  damageDealt.forEach((totalDamage) => {
     if (participant.totalDamageDealtToChampions === totalDamage) {
-      damageDealtRank = damageArray.indexOf(totalDamage) + 1;
+      damageDealtRank = damageDealt.indexOf(totalDamage) + 1;
+    }
+  });
+
+  damageTaken = damageTaken.sort((a, b) => b - a);
+  damageTaken.forEach((totalDamage) => {
+    if (participant.totalDamageTaken === totalDamage) {
+      damageTakenRank = damageTaken.indexOf(totalDamage) + 1;
     }
   });
 
@@ -61,7 +69,7 @@ function PlayerInfoModal({ participant, damageArray }) {
   };
 
   let properDamageRank = addEndToNumber(damageDealtRank.toString());
-
+  let properTakenRank = addEndToNumber(damageTakenRank.toString());
   return (
     <div className="main-data-container">
       <h1 className="in-game-name">{participant.riotIdGameName}</h1>
@@ -94,7 +102,10 @@ function PlayerInfoModal({ participant, damageArray }) {
         </h3>
         <h3 className="damage-rank">{properDamageRank}</h3>
       </div>
-      <h3>Damage Taken: {addCommas(participant.totalDamageTaken)}</h3>
+      <div className="damage-row">
+        <h3>Damage Taken: {addCommas(participant.totalDamageTaken)}</h3>
+        <h3 className="damage-rank">{properTakenRank}</h3>
+      </div>
     </div>
   );
 }

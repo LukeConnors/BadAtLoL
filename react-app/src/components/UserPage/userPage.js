@@ -71,6 +71,9 @@ function UserPage() {
             let damageTakenArray = match?.info?.participants.map(
               (participant) => participant?.totalDamageTaken
             );
+            let goldEarnedArray = match?.info?.participants.map(
+              (participant) => participant?.goldEarned
+            );
 
             if (match?.info?.gameMode === "CLASSIC") {
               return (
@@ -97,6 +100,7 @@ function UserPage() {
                                       participant={participant}
                                       damageDealt={damageDealtArray}
                                       damageTaken={damageTakenArray}
+                                      goldEarned={goldEarnedArray}
                                     />
                                   )
                                 }
@@ -142,7 +146,9 @@ function UserPage() {
                                   setModalContent(
                                     <PlayerInfoModal
                                       participant={participant}
-                                      damageArray={damageArray}
+                                      damageDealt={damageDealtArray}
+                                      damageTaken={damageTakenArray}
+                                      goldEarned={goldEarnedArray}
                                     />
                                   )
                                 }

@@ -1,9 +1,15 @@
 import "./playerInfoModal.css";
 import { useState } from "react";
 
-function PlayerInfoModal({ participant, damageDealt, damageTaken }) {
+function PlayerInfoModal({
+  participant,
+  damageDealt,
+  damageTaken,
+  goldEarned,
+}) {
   let damageDealtRank = 0;
   let damageTakenRank = 0;
+  let goldEarnedRank = 0;
 
   // Helper function to add the correct ending to a number for rankings
   const addEndToNumber = (number) => {
@@ -47,6 +53,12 @@ function PlayerInfoModal({ participant, damageDealt, damageTaken }) {
       damageTakenRank = damageTaken.indexOf(totalDamage) + 1;
     }
   });
+  goldEarned = goldEarned.sort((a, b) => b - a);
+  goldEarned.forEach((gold) => {
+    if (participant.goldEarned === gold) {
+      goldEarnedRank = goldEarned.indexOf(gold) + 1;
+    }
+  });
 
   const kdaCalculator = (kills, deaths, assists) => {
     const kda = (kills + assists) / deaths;
@@ -70,6 +82,7 @@ function PlayerInfoModal({ participant, damageDealt, damageTaken }) {
 
   let properDamageRank = addEndToNumber(damageDealtRank.toString());
   let properTakenRank = addEndToNumber(damageTakenRank.toString());
+  let properGoldRank = addEndToNumber(goldEarnedRank.toString());
   return (
     <div className="main-data-container">
       <h1 className="in-game-name">{participant.riotIdGameName}</h1>
@@ -95,7 +108,11 @@ function PlayerInfoModal({ participant, damageDealt, damageTaken }) {
         {findImage(participant.item6)}
       </div>
       <h3>Creep Score: {addCommas(participant.totalMinionsKilled)}</h3>
-      <h3>Gold: {addCommas(participant.goldEarned)}</h3>
+      <div className="damage-row">
+        <h3>Gold: {addCommas(participant.goldEarned)}</h3>
+        <h3 className="damage-rank">{properGoldRank}</h3>
+      </div>
+
       <div className="damage-row">
         <h3>
           Damage Dealt: {addCommas(participant.totalDamageDealtToChampions)}{" "}

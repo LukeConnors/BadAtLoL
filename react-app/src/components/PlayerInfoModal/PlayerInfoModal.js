@@ -37,6 +37,7 @@ function PlayerInfoModal({
     } else {
       return (
         <img
+          className="item-img"
           src={`https://opgg-static.akamaized.net/meta/images/lol/14.2.1/item/${item}.png?image=q_auto,f_webp,w_64,h_64&v=1705466001567`}
         ></img>
       );
@@ -107,16 +108,20 @@ function PlayerInfoModal({
         </h4>
       </div>
       <div className="runes-div">
-        <img
-          className="runes"
-          src={`https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perk/${keystone}.png?image=q_auto,f_webp,w_64,h_64&v=1708681571653`}
-        ></img>
-        <img
-          className="runes"
-          src={`https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perkStyle/${secondaryPerk}.png?image=q_auto,f_webp,w_64,h_64&v=1708681571653`}
-        ></img>
+        <div className="main-rune-div">
+          <img
+            className="rune"
+            src={`https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perk/${keystone}.png?image=q_auto,f_webp,w_64,h_64&v=1708681571653`}
+          ></img>
+        </div>
+        <div className="second-rune-div">
+          <img
+            className="second-rune"
+            src={`https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perkStyle/${secondaryPerk}.png?image=q_auto,f_webp,w_64,h_64&v=1708681571653`}
+          ></img>
+        </div>
       </div>
-      <div>
+      <div className="items-div">
         {findImage(participant.item0)}
         {findImage(participant.item1)}
         {findImage(participant.item2)}

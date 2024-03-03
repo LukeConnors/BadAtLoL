@@ -64,3 +64,68 @@
     border: 1px solid black;
 
 }
+
+.runes-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 0px;
+}
+
+.rune{
+    height: 40px;
+    width: 40px;
+}
+
+.second-rune{
+height: 30px;
+width: 30px;
+}
+
+.main-rune-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border-radius: 75px 0px 0px 75px;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    height: 40px;
+    width: 50px;
+
+}
+
+.second-rune-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 0px 75px 75px 0px;
+    height: 40px;
+    width: 50px;
+}
+
+.items-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 5px;
+}
+
+.item-img{
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    border: 2px solid white;
+    border-radius: 20px;
+}

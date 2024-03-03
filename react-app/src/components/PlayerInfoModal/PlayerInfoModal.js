@@ -10,6 +10,8 @@ function PlayerInfoModal({
   let damageDealtRank = 0;
   let damageTakenRank = 0;
   let goldEarnedRank = 0;
+  let keystone = participant?.perks?.styles[0]?.selections[0]?.perk;
+  let secondaryPerk = participant?.perks?.styles[1]?.style;
 
   // Helper function to add the correct ending to a number for rankings
   const addEndToNumber = (number) => {
@@ -87,6 +89,12 @@ function PlayerInfoModal({
     <div className="main-data-container">
       <h1 className="in-game-name">{participant.riotIdGameName}</h1>
       <h2>{participant.championName}</h2>
+      <div>
+        <img
+          className="champ-img"
+          src={`https://ddragon-webp.lolmath.net/latest/img/champion/${participant.championName}.webp`}
+        ></img>
+      </div>
       <div className="kda-div">
         <h4
           className={statsColoring(
@@ -97,6 +105,16 @@ function PlayerInfoModal({
         >
           {participant.kills}/{participant.deaths}/{participant.assists}
         </h4>
+      </div>
+      <div className="runes-div">
+        <img
+          className="runes"
+          src={`https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perk/${keystone}.png?image=q_auto,f_webp,w_64,h_64&v=1708681571653`}
+        ></img>
+        <img
+          className="runes"
+          src={`https://opgg-static.akamaized.net/meta/images/lol/14.4.1/perkStyle/${secondaryPerk}.png?image=q_auto,f_webp,w_64,h_64&v=1708681571653`}
+        ></img>
       </div>
       <div>
         {findImage(participant.item0)}

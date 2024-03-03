@@ -195,7 +195,7 @@ function UserPage() {
               );
             }
 
-            if (match.info.gameMode === "CHERRY") {
+            if (match?.info?.gameMode === "CHERRY") {
               return (
                 <div className="match-container">
                   <h3>Arena</h3>

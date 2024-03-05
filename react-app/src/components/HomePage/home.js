@@ -23,53 +23,66 @@ function HomePage() {
   };
 
   return (
-    <div className="home-page">
-      <h1 className="home-page-title">Am I Bad at LoL?</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="form-inputs">
-          <div className="summ-name-div">
-            <h2 className="summ-name">Summoner Name</h2>
-            <input
-              className="summ-name-input"
-              type="text"
-              placeholder="Summoner Name"
-              value={formData.username}
-              onChange={(e) =>
-                setFormData({ ...formData, username: e.target.value })
-              }
-            ></input>
+    <>
+      <div className="home-page">
+        <h1 className="home-page-title">Am I Bad at LoL?</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="form-inputs">
+            <div className="summ-name-div">
+              <h2 className="summ-name">Summoner Name</h2>
+              <input
+                className="summ-name-input"
+                type="text"
+                placeholder="Summoner Name"
+                value={formData.username}
+                onChange={(e) =>
+                  setFormData({ ...formData, username: e.target.value })
+                }
+              ></input>
+            </div>
+            <div className="region-div">
+              <h2 className="region">Region</h2>
+              <select
+                className="region-select"
+                value={formData.region}
+                onChange={(e) =>
+                  setFormData({ ...formData, region: e.target.value })
+                }
+              >
+                <option value="">--Select Region--</option>
+                <option value="na1">NA</option>
+                <option value="euw1">EUW</option>
+                <option value="eun1">EUNE</option>
+                <option value="br1">BR</option>
+                <option value="kr">KR</option>
+                <option value="jp1">JP</option>
+                <option value="la1">LAN</option>
+                <option value="la2">LAS</option>
+                <option value="oc1">OCE</option>
+                <option value="tr1">TR</option>
+                <option value="ru">RU</option>
+              </select>
+            </div>
+            <div className="submit-button-div">
+              <button type="submit" className="submit-button">
+                Submit
+              </button>
+            </div>
           </div>
-          <div className="region-div">
-            <h2 className="region">Region</h2>
-            <select
-              className="region-select"
-              value={formData.region}
-              onChange={(e) =>
-                setFormData({ ...formData, region: e.target.value })
-              }
-            >
-              <option value="">--Select Region--</option>
-              <option value="na1">NA</option>
-              <option value="euw1">EUW</option>
-              <option value="eun1">EUNE</option>
-              <option value="br1">BR</option>
-              <option value="kr">KR</option>
-              <option value="jp1">JP</option>
-              <option value="la1">LAN</option>
-              <option value="la2">LAS</option>
-              <option value="oc1">OCE</option>
-              <option value="tr1">TR</option>
-              <option value="ru">RU</option>
-            </select>
-          </div>
-          <div className="submit-button-div">
-            <button type="submit" className="submit-button">
-              Submit
-            </button>
-          </div>
+        </form>
+      </div>
+      <div className="home-lower">
+        <h2 className="home-page-title">How to use this app:</h2>
+        <p className="home-page-text">
+          Enter your summoner name and region and click submit. This will take
+          you to the user page where you can see your stats and match history.
+        </p>
+        <div className="footer">
+        <i id="github-icon" class="fa-brands fa-github"></i>
+        <i id="linkedin" class="fa-brands fa-linkedin"></i>
         </div>
-      </form>
-    </div>
+      </div>
+    </>
   );
 }
 export default HomePage;

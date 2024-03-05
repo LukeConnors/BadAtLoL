@@ -99,3 +99,38 @@
     color: black;
     font-size: 15px;
 }
+
+.home-lower{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(73, 150, 237);
+    border-top: 1px solid black;
+    /* padding-bottom: 30%; */
+}
+
+#github-icon{
+    font-size: 50px;
+    margin-top: 30px;
+    padding-right: 100px;
+    color: white;
+}
+
+#linkedin{
+    font-size: 50px;
+    margin-top: 30px;
+    padding-left: 100px;
+    color: white;
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(73, 150, 237);
+    border-top: 1px solid black;
+    padding-top: 22%;
+    padding-bottom: 30px;
+}

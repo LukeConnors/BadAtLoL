@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "./home.css";
+
 function HomePage() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -78,8 +79,25 @@ function HomePage() {
           you to the user page where you can see your stats and match history.
         </p>
         <div className="footer">
-        <i id="github-icon" class="fa-brands fa-github"></i>
-        <i id="linkedin" class="fa-brands fa-linkedin"></i>
+          <div className="logo-footer">
+            <i
+              id="github-icon"
+              class="fa-brands fa-github"
+              onClick={() =>
+                window.open("https://github.com/LukeConnors", "_blank")
+              }
+            ></i>
+            <i
+              id="linkedin"
+              class="fa-brands fa-linkedin"
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/luke-connors-981373b1/",
+                  "_blank"
+                )
+              }
+            ></i>
+          </div>
         </div>
       </div>
     </>

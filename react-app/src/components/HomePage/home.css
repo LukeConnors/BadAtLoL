@@ -117,11 +117,21 @@
     color: white;
 }
 
+#github-icon:hover{
+    color: rgb(117, 117, 117);
+    cursor: pointer;
+}
+
 #linkedin{
     font-size: 50px;
     margin-top: 30px;
     padding-left: 100px;
     color: white;
+}
+
+#linkedin:hover{
+    color: rgb(117, 117, 117);
+    cursor: pointer;
 }
 
 .footer{

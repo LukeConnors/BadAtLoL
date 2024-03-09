@@ -43,6 +43,32 @@ function PlayerInfoModal({
       );
     }
   };
+
+  const calculateBadRank = () => {
+    let score = 0;
+    let damageDealtRank = damageDealtRank * 10;
+    let damageTakenRank = damageTakenRank * 10;
+    let goldEarnedRank = goldEarnedRank * 10;
+    if (
+      participant.teamPosition === "MIDDLE" ||
+      "TOP" ||
+      "JUNGLE" ||
+      "BOTTOM"
+    ) {
+      score += damageDealtRank * 0.75;
+    } else {
+      score += damageDealtRank;
+    }
+
+    if (participant.teamPosition === "TOP" || "JUNGLE") {
+      score += damageTakenRank * 0.75;
+    } else if (participant.teamPosition === "MIDDLE" || "BOTTOM") {
+      score -= damageTakenRank * 0.25;
+    } else {
+      score += damageTakenRank;
+    }
+  };
+
   damageDealt = damageDealt.sort((a, b) => b - a);
   damageDealt.forEach((totalDamage) => {
     if (participant.totalDamageDealtToChampions === totalDamage) {

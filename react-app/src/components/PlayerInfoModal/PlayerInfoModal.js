@@ -90,26 +90,26 @@ function PlayerInfoModal({
 
   const calculateBadRank = () => {
     let score = 0;
-    let damageDealtRank = damageDealtRank * 10;
-    let damageTakenRank = damageTakenRank * 10;
-    let goldEarnedRank = goldEarnedRank * 10;
+    let dDealt = damageDealtRank * 10;
+    let dTaken = damageTakenRank * 10;
+    let gEarned = goldEarnedRank * 10;
     if (
       participant.teamPosition === "MIDDLE" ||
       "TOP" ||
       "JUNGLE" ||
       "BOTTOM"
     ) {
-      score += damageDealtRank * 0.75;
+      score += dDealt * 0.75;
     } else {
-      score += damageDealtRank;
+      score += dDealt;
     }
 
     if (participant.teamPosition === "TOP" || "JUNGLE") {
-      score += damageTakenRank * 0.75;
+      score += dTaken * 0.75;
     } else if (participant.teamPosition === "MIDDLE" || "BOTTOM") {
-      score -= damageTakenRank * 0.25;
+      score -= dTaken * 0.25;
     } else {
-      score += damageTakenRank;
+      score += dTaken;
     }
 
     if (
@@ -118,9 +118,9 @@ function PlayerInfoModal({
       "TOP" ||
       "JUNGLE"
     ) {
-      score += goldEarnedRank * 0.75;
+      score += gEarned * 0.75;
     } else {
-      score += goldEarnedRank;
+      score += gEarned;
     }
     return score;
   };

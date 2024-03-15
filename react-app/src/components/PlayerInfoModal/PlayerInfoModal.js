@@ -99,7 +99,7 @@ function PlayerInfoModal({
       "JUNGLE" ||
       "BOTTOM"
     ) {
-      score += dDealt * 0.75;
+      score += dDealt * 1.25;
     } else {
       score += dDealt;
     }

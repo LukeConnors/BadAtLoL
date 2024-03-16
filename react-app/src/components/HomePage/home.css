@@ -149,3 +149,12 @@
     padding-top: 22%;
     padding-bottom: 30px;
 }
+
+
+.region-options{
+    color: white;
+}
+.region-options:hover{
+    color: rgb(117, 117, 117);
+    cursor: pointer;
+}

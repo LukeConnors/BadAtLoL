@@ -107,7 +107,7 @@ function PlayerInfoModal({
     if (participant.teamPosition === "TOP" || "JUNGLE") {
       score += dTaken * 0.75;
     } else if (participant.teamPosition === "MIDDLE" || "BOTTOM") {
-      score += dTaken * 0.25;
+      score += dTaken * 1.25;
     } else {
       score += dTaken;
     }
